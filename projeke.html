@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Beginner Portfolio</title>
+  <meta name="description" content="A simple beginner-friendly portfolio website with images from Pexels" />
+  <link rel="stylesheet" href="projeke.css">
+
+</head>
+<body>
+
+  <header>
+    <h1>Hi, I'm Khomotjo</h1>
+    <p>Aspiring Web Developer</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hello! I am a beginner web developer passionate about creating beautiful and functional websites. This is my very first portfolio project using HTML, CSS, and JavaScript, and I am learning more every day.</p>
+    </section>
+
+
+    <section id="quoteBox">
+      <h2>Daily Inspiration</h2>
+      <p id="quoteText">Loading quote...</p>
+      <button id="newQuote">Get New Quote</button>
+    </section>
+
+    <section id="projects">
+      <h2>My Projects</h2>
+      <div class="gallery">
+        <img src="images/pexels-shkrabaanthony-4348399.jpg" alt="" />
+        <img src="images/pexels-thisisengineering-3861969.jpg" alt=" A lady surrounded by code" />
+        <img src="images/pexels-cowomen-1058097-2041624.jpg" alt="A working space with a laptop and a light." />
+        <img src="https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg" alt="Laptop on desk" />
+        <img src="images/pexels-karolina-grabowska-4210787.jpg" alt="An empty open book and silver pen." />
+        <img src="images/pexels-rahimegul-19825979.jpg" alt="An empty open book and silver pen." />
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+        <p id="formMessage"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Khomotjo. Made with ❤️ using HTML, CSS & JavaScript.</p>
+  </footer>
+
+
+  <div id="lightbox" class="lightbox">
+    <span class="close-btn" onclick="closeLightbox()">x</span>
+    <img id="lightbox-img" src="" alt="Enlarged view" />
+  </div>
+
+  <script>
+    const galleryImages = document.querySelectorAll(".gallery img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    galleryImages.forEach(img => {
+      img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.style.display = "none";
+    }
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target !== lightboxImg) {
+        closeLightbox();
+      }
+    });
+
+
+    async function getQuote() {
+      try {
+        const res = await fetch("https://api.quotable.io/random");
+        const data = await res.json();
+        document.getElementById("quoteText").textContent = data.content;
+      } catch (error) {
+        document.getElementById("quoteText").textContent = "Could not load quote.";
+      }
+    }
+    document.getElementById("newQuote").addEventListener("click", getQuote);
+    getQuote();
+
+    
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+      const msgBox = document.getElementById("formMessage");
+
+      if (name && email.includes("@") && message.length > 5) {
+        msgBox.textContent = "✅ Message sent successfully!";
+        msgBox.style.color = "green";
+      } else {
+        msgBox.textContent = "❌ Please fill in all fields correctly.";
+        msgBox.style.color = "red";
+      }
+    });
+  </script>
+</body>
+</html>

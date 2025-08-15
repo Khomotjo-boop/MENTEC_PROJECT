@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Khomotjo's Portfolio</title>
+  <meta name="description" content="Beginner-friendly portfolio with gallery, quotes, and contact form" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Hi, I'm Khomotjo</h1>
+    <p>Aspiring Web Developer</p>
+  </header>
+
+  <nav>
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hello! I am a beginner web developer passionate about creating beautiful and functional websites. This is my very first portfolio project using HTML, CSS, and JavaScript.</p>
+    </section>
+
+    <section id="quoteBox">
+      <h2>Daily Inspiration</h2>
+      <p id="quoteText">Loading quote...</p>
+      <button id="newQuote">Get New Quote</button>
+    </section>
+
+    <section id="projects">
+      <h2>My Projects</h2>
+      <div class="gallery">
+        <img src="images/pexels-shkrabaanthony-4348399.jpg" alt="" />
+        <img src="images/pexels-thisisengineering-3861969.jpg" alt="A lady surrounded by code" />
+        <img src="images/pexels-cowomen-1058097-2041624.jpg" alt="A working space with a laptop and a light." />
+        <img src="https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg" alt="Laptop on desk" />
+        <img src="images/pexels-karolina-grabowska-4210787.jpg" alt="An empty open book and silver pen." />
+        <img src="images/pexels-rahimegul-19825979.jpg" alt="An empty open book and silver pen." />
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Khomotjo🌺. Made with ❤️ using HTML, CSS & JavaScript.</p>
+  </footer>
+
+  <div id="lightbox" class="lightbox">
+    <span class="close-btn" onclick="closeLightbox()">x</span>
+    <img id="lightbox-img" src="" alt="Enlarged view" />
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>

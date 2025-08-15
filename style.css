@@ -1,0 +1,71 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+  color: #333;
+}
+header {
+  background: #2193b0;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+nav {
+  background: #186f84;
+  padding: 0.5rem;
+  text-align: center;
+}
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+nav a[aria-current="page"] {
+  font-weight: bold;
+  text-decoration: underline;
+}
+main {
+  padding: 1rem;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+.gallery img {
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button {
+  padding: 0.5rem 1rem;
+  background: #2193b0;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background: #186f84;
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: center;
+}
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+}
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
